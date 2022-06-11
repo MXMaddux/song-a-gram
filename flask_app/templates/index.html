@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #48aec0;
+    }
+
+    .button {
+      position: relative;
+      padding: 8px 16px;
+      background: #48aec0;
+      border: none;
+      outline: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #000dff;
+    }
+
+    .button:active {
+      background: #48aec0;
+    }
+
+    .button__text {
+      font: bold 20px;
+      color: #fff;
+      transition: all 0.2s;
+    }
+
+    .button--loading .button__text {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .button--loading::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      border: 4px solid transparent;
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: button-loading-spinner 1s ease infinite;
+    }
+
+    @keyframes button-loading-spinner {
+      from {
+        transform: rotate(0turn);
+      }
+
+      to {
+        transform: rotate(1turn);
+      }
+    }
+  </style>
+  <title>Song-a-gram</title>
+</head>
+
+<body>
+  <div class="container-sm text-center d-block">
+    <div class="mx-auto container-sm container-fluid justify-content-center bg-secondary text-light col-6 mt-5 mb-5">
+      <img class="img-fluid mt-4" src="../static/img/Song-a-gram_small.png" alt="Song-a-gram">
+      <form action="/song_a_gram" method="post" class="w-50 mx-auto">
+        {% with messages = get_flashed_messages(category_filter=['information']) %}
+        {% if messages %}
+        <div class="alert alert-info text-dark" role="alert">
+          <strong>WTF?!?!</strong>
+          {% for message in messages %}
+          <p>{{message}}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name:</label>
+          <input type="name" class="form-control" name="your_name">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Friend's Name:</label>
+          <input type="name" class="form-control" name="friend_name">
+        </div>
+        <div class="mb-3">
+          <label for="tel" class="form-label">Friend's Phone Number:</label>
+          <input type="tel" class="form-control" name="friend_number" placeholder="888-555-7890"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Artist's or Band's Name:</label>
+          <input type="name" class="form-control" name="artist">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Song Title:</label>
+          <input type="name" class="form-control" name="song_title">
+        </div>
+        <button type="submit" class="button mt-3 mb-3" onclick="this.classList.toggle('button--loading')">
+          <span class="button__text">Send Lyrics</span>
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+  <script>
+    const btn = document.querySelector(".button");
+    btn.classList.add("button--loading");
+    btn.classList.remove("button--loading");
+  </script>
+</body>
+
+</html>

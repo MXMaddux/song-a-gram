@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Song-a-gram</title>
+</head>
+
+<body>
+    <div class="container-sm text-center d-block">
+        <div class="mx-auto container-sm container-fluid justify-content-center bg-secondary text-light col-6">
+            <img class="img-fluid mt-5" src="../static/img/Song-a-gram_small.png" alt="Song-a-gram">
+            <h2>Success!</h2>
+            <p class="text-info">From: <strong class="text-white">{{session['your_name']}}</strong></p>
+            <p class="text-info">To: <strong class="text-white">{{session['friend_name']}}</strong></p>
+            <p class="text-info">Friend's Number: <strong class="text-white">{{session['friend_number']}}</strong></p>
+            <p class="text-info">Song Title: <strong class="text-white">{{session['song_title']}}</strong></p>
+
+            <a href="/" class="button btn btn-primary mt-3 mb-5">Home</a>
+
+        </div>
+
+    </div>
+</body>
+<style>
+    body {
+        background-color: #48aec0;
+    }
+    .button {
+        background: #48aec0;
+        border:none;
+    }
+</style>
+
+</html>
