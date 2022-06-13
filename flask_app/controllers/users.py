@@ -62,21 +62,25 @@ def song_a_gram():
 
     time.sleep(2)
 
-    message2 = client.messages.create(
-        body=f"{song_lyrics[1200:2799:]}",
-        from_=my_twilio_num,
-        to=session['friend_number']
-    )
+    if len(song.lyrics) > 1200 and len(song.lyrics) < 2799:
 
-    time.sleep(2)
+        message2 = client.messages.create(
+            body=f"{song_lyrics[1200:2799:]}",
+            from_=my_twilio_num,
+            to=session['friend_number']
+        )
 
-    message3 = client.messages.create(
-        body=f"{song_lyrics[2799:]}",
-        from_=my_twilio_num,
-        to=session['friend_number']
-    )
-    print(message2.sid)
-    print(message2.status)
+        time.sleep(2)
+
+    if len(song.lyrics) > 2799:
+
+        message3 = client.messages.create(
+            body=f"{song_lyrics[2799:]}",
+            from_=my_twilio_num,
+            to=session['friend_number']
+        )
+        # print(message2.sid)
+        # print(message2.status)
 
     return redirect("/results")
 
