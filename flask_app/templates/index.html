@@ -72,9 +72,9 @@
 
 <body>
   <div class="container-sm text-center d-block">
-    <div class="mx-auto container-sm container-fluid justify-content-center bg-secondary text-light col-6 mt-5 mb-5">
+    <div class="mx-auto container-lg container-fluid justify-content-center bg-secondary text-light col-8 mt-5 mb-5">
       <img class="img-fluid mt-4" src="../static/img/Song-a-gram_small.png" alt="Song-a-gram">
-      <form action="/song_a_gram" method="post" class="w-50 mx-auto">
+      <form action="/song_a_gram" method="post" class="w-250 mx-auto">
         {% with messages = get_flashed_messages(category_filter=['information']) %}
         {% if messages %}
         <div class="alert alert-info text-dark" role="alert">
@@ -87,24 +87,24 @@
         {% endwith %}
         <div class="mb-3">
           <label for="name" class="form-label">Your Name:</label>
-          <input type="name" class="form-control" name="your_name">
+          <input type="name" class="form-control input-xxlarge" name="your_name">
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Your Friend's Name:</label>
-          <input type="name" class="form-control" name="friend_name">
+          <input type="name" class="form-control input-xxlarge" name="friend_name">
         </div>
         <div class="mb-3">
           <label for="tel" class="form-label">Friend's Phone Number:</label>
-          <input type="tel" class="form-control" name="friend_number" placeholder="888-555-7890"
+          <input type="tel" class="form-control input-xxlarge" name="friend_number" placeholder="888-555-7890"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Artist's or Band's Name:</label>
-          <input type="name" class="form-control" name="artist">
+          <input type="name" class="form-control input-xxlarge" name="artist">
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Song Title:</label>
-          <input type="name" class="form-control" name="song_title">
+          <input type="name" class="form-control input-xxlarge" name="song_title">
         </div>
         <button type="submit" class="button mt-3 mb-3" onclick="this.classList.toggle('button--loading')">
           <span class="button__text">Send Lyrics</span>
